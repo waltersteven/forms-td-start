@@ -12,7 +12,7 @@ export class AppComponent {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
+    console.log(form); //Some attributes of the object form -> dirty: if we change the value, touched: if we click the element
   }
-
+  
 }
