@@ -19,19 +19,27 @@
           </div>
         </div>
         <p *ngIf="!userData.valid && userData.touched">user data is invalid!</p> <!-- validation to the whole group -->
-        
+
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select id="secret" class="form-control" name="secret" [ngModel]="defaultQuestion">
+          <select id="secret" class="form-control" name="secret" [ngModel]="defaultQuestion"> <!-- [ngModel] : Property binding to make a default selection-->
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
 
         <div class="form-group">
-          <textarea name="questionAnswer" class="form-control" rows="3" [(ngModel)]="answer"></textarea>
+          <textarea name="questionAnswer" class="form-control" rows="3" [(ngModel)]="answer"></textarea> <!-- [(ngModel)] :  Two way data binding -->
         </div>
         <p>Your reply: {{ answer }}</p>
+
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" name="gender" [ngModel]="defaultRadio" [value]="gender" required>
+            {{ gender }}
+          </label>
+        </div>
+
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button> <!-- [disabled]="!f.valid" : disable if this form is not valid-->
       
       </form>
